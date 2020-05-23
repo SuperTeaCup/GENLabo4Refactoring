@@ -6,6 +6,7 @@ import java.util.List;
 public class Order {
     private List<Product> products = new ArrayList<Product>();
     private int id;
+    // random comm
 
     public Order(int id) {
         this.id = id;
