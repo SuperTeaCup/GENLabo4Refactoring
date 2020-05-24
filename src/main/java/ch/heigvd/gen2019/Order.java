@@ -26,4 +26,15 @@ public class Order {
     public void AddProduct(Product product) {
         products.add(product);
     }
+
+    void getOrderContent(StringBuffer sb) {
+        sb.append("{");
+        sb.append("\"id\": ");
+        sb.append(getOrderId());
+        sb.append(", ");
+        sb.append("\"products\": [");
+        for (int j = 0; j < getProductsCount(); j++) {
+            getProduct(j).getProductContents(sb);
+        }
+    }
 }
