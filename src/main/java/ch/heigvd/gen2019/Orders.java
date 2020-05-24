@@ -23,14 +23,7 @@ public class Orders {
 
         for (int i = 0; i < getOrdersCount(); i++) {
             Order order = getOrder(i);
-            sb.append("{");
-            sb.append("\"id\": ");
-            sb.append(order.getOrderId());
-            sb.append(", ");
-            sb.append("\"products\": [");
-            for (int j = 0; j < order.getProductsCount(); j++) {
-                order.getProduct(j).getProductContents(sb);
-            }
+            getOrderContent(sb, order);
 
             if (order.getProductsCount() > 0) {
                 sb.delete(sb.length() - 2, sb.length());
@@ -45,5 +38,16 @@ public class Orders {
         }
 
         return sb.append("]}").toString();
+    }
+
+    private void getOrderContent(StringBuffer sb, Order order) {
+        sb.append("{");
+        sb.append("\"id\": ");
+        sb.append(order.getOrderId());
+        sb.append(", ");
+        sb.append("\"products\": [");
+        for (int j = 0; j < order.getProductsCount(); j++) {
+            order.getProduct(j).getProductContents(sb);
+        }
     }
 }
