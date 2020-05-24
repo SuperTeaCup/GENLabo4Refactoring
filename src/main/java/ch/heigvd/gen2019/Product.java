@@ -35,4 +35,26 @@ public class Product {
         return currency;
     }
 
+    void getProductContents(StringBuffer sb) {
+        sb.append("{");
+        sb.append("\"code\": \"");
+        sb.append(getCode());
+        sb.append("\", ");
+        sb.append("\"color\": \"");
+        sb.append(getColor());
+        sb.append("\", ");
+
+        if (getSize() != Size.INVALID_SIZE) {
+            sb.append("\"size\": \"");
+            sb.append(getSize());
+            sb.append("\", ");
+        }
+
+        sb.append("\"price\": ");
+        sb.append(getPrice());
+        sb.append(", ");
+        sb.append("\"currency\": \"");
+        sb.append(getCurrency());
+        sb.append("\"}, ");
+    }
 }
