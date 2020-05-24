@@ -18,7 +18,6 @@ public class OrdersWriter {
             sb.append(", ");
             sb.append("\"products\": [");
             for (int j = 0; j < order.getProductsCount(); j++) {
-
                 getProductContents(sb, order.getProduct(j));
             }
 
@@ -46,9 +45,9 @@ public class OrdersWriter {
         sb.append(product.getColorFor());
         sb.append("\", ");
 
-        if (product.getSize() != Product.SIZE_NOT_APPLICABLE) {
+        if (product.getSize() != Size.INVALID_SIZE) {
             sb.append("\"size\": \"");
-            sb.append(product.getSizeFor());
+            sb.append(product.getSize());
             sb.append("\", ");
         }
 
